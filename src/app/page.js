@@ -120,25 +120,31 @@ export default function Home() {
             .split(",")
             .map((s) => s.trim())
             .filter((s) => s !== "");
-        return parts.map((part, index) => {
-            const [key, ...rest] = part.split(":");
-            const value = rest.join(":").trim();
-            let className = "morph-box";
-            if (key.toLowerCase() === "część mowy") {
-                className += " morph-czesc-mowy";
-            } else if (key.toLowerCase() === "liczba") {
-                className += " morph-liczba";
-            }
-            // } else if (key.toLowerCase() === "rodzaj") {
-            //     className += " morph-rodzaj";
-            // }
-            return (
-                <span key={index} className={className}>
+
+        return parts
+            .map((part, index) => {
+                // Split the part into key and value(s)
+                const [key, ...rest] = part.split(":");
+                if (key.toLowerCase() === "rodzaj") {
+                    // Skip rendering for "rodzaj"
+                    return null;
+                }
+                const value = rest.join(":").trim();
+                let className = "morph-box";
+                if (key.toLowerCase() === "część mowy") {
+                    className += " morph-czesc-mowy";
+                } else if (key.toLowerCase() === "liczba") {
+                    className += " morph-liczba";
+                }
+                return (
+                    <span key={index} className={className}>
           {value}
         </span>
-            );
-        });
+                );
+            })
+            .filter((elem) => elem !== null);
     };
+
 
     // Handle Enter key press
     const handleKeyDown = (e) => {

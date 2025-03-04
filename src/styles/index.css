@@ -101,10 +101,12 @@ p {
     display: inline-block;
     padding: 3px 6px;
     margin-right: 5px;
-    border: 1px solid;
     border-radius: 4px;
     font-size: 0.9rem;
     font-weight: bold;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
 }
 
 .morph-czesc-mowy {
@@ -117,10 +119,4 @@ p {
     background-color: #fff3cd;
     border-color: #ffeeba;
     color: #856404;
-}
-
-.morph-rodzaj {
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    color: #155724;
 }
