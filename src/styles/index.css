@@ -1,0 +1,126 @@
+/* styles/index.css */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-color: #572fe6;
+}
+
+.generate-button {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #572fe6;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s ease;
+}
+
+.generate-button:hover {
+    background-color: #4a24c9;
+}
+
+.result {
+    margin-top: 2rem;
+    overflow-x: auto;
+}
+
+.result table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.result th,
+.result td {
+    border: 1px solid #9d9d9d;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.result th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+}
+
+.result tr {
+    transition: background-color 0.3s ease;
+}
+
+.result thead tr {
+    border-bottom: 2px solid #ccc;
+}
+
+.morph-box {
+    display: inline-block;
+    padding: 3px 6px;
+    margin-right: 5px;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.morph-czesc-mowy {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+.morph-liczba {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+
+.morph-rodzaj {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
