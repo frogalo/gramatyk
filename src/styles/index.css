@@ -101,22 +101,35 @@ p {
     display: inline-block;
     padding: 3px 6px;
     margin-right: 5px;
+    border: 1px solid;
     border-radius: 4px;
     font-size: 0.9rem;
     font-weight: bold;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    color: #155724;
 }
 
-.morph-czesc-mowy {
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
-    color: #0c5460;
+/* Specific styles for "część mowy" values: */
+.morph-czasownik {
+    background-color: #f8d7da;  /* Light red background */
+    border-color: #f5c6cb;      /* Red border */
+    color: #721c24;           /* Dark red text */
 }
 
+.morph-rzeczownik {
+    background-color: #cce5ff;  /* Light blue background */
+    border-color: #b8daff;      /* Blue border */
+    color: #004085;           /* Dark blue text */
+}
+
+.morph-inne {
+    background-color: #e2d6f3;  /* Light purple background */
+    border-color: #d1c4e9;      /* Purple border */
+    color: #5a3e9e;           /* Dark purple text */
+}
+
+/* Styles for "liczba" if needed remain unchanged: */
 .morph-liczba {
     background-color: #fff3cd;
     border-color: #ffeeba;
     color: #856404;
 }
+

@@ -123,16 +123,26 @@ export default function Home() {
 
         return parts
             .map((part, index) => {
-                // Split the part into key and value(s)
                 const [key, ...rest] = part.split(":");
+                const value = rest.join(":").trim();
+
+                // Skip rendering for "rodzaj" if you don't want it:
                 if (key.toLowerCase() === "rodzaj") {
-                    // Skip rendering for "rodzaj"
                     return null;
                 }
-                const value = rest.join(":").trim();
+
                 let className = "morph-box";
+
                 if (key.toLowerCase() === "część mowy") {
-                    className += " morph-czesc-mowy";
+                    // Check the value for specific parts of speech.
+                    const lowerValue = value.toLowerCase();
+                    if (lowerValue === "czasownik") {
+                        className += " morph-czasownik";
+                    } else if (lowerValue === "rzeczownik") {
+                        className += " morph-rzeczownik";
+                    } else {
+                        className += " morph-inne";
+                    }
                 } else if (key.toLowerCase() === "liczba") {
                     className += " morph-liczba";
                 }
@@ -144,6 +154,7 @@ export default function Home() {
             })
             .filter((elem) => elem !== null);
     };
+
 
 
     // Handle Enter key press
