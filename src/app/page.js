@@ -35,10 +35,22 @@ const getPOSLabel = (morphObj) => {
   return { label: pos || "—", variant: "other" };
 };
 
-const LS_HISTORY_KEY = "leksyka_history";
+const LS_HISTORY_KEY = "gramatyk_history";
+const OLD_LS_HISTORY_KEY = "leksyka_history";
 
 const readHistory = () => {
-  try { return JSON.parse(localStorage.getItem(LS_HISTORY_KEY) || "[]"); }
+  try { 
+    const history = localStorage.getItem(LS_HISTORY_KEY);
+    if (history) return JSON.parse(history);
+    // Migration
+    const oldHistory = localStorage.getItem(OLD_LS_HISTORY_KEY);
+    if (oldHistory) {
+      localStorage.setItem(LS_HISTORY_KEY, oldHistory);
+      localStorage.removeItem(OLD_LS_HISTORY_KEY);
+      return JSON.parse(oldHistory);
+    }
+    return [];
+  }
   catch { return []; }
 };
 

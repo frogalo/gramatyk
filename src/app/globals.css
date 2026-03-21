@@ -50,8 +50,10 @@
   --surface-tint:             #5f5e5e;
 
   /* --- Typography Scale --- */
-  --font-serif: 'Newsreader', Georgia, serif;
-  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-serif-internal: var(--font-serif);
+  --font-sans-internal:  var(--font-sans);
+  --font-serif: var(--font-serif-internal, 'Newsreader', Georgia, serif);
+  --font-sans:  var(--font-sans-internal, 'Inter', system-ui, sans-serif);
 
   /* --- Spacing Scale --- */
   --space-1:  0.2rem;
