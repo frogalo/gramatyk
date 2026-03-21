@@ -35,8 +35,8 @@ tabelę z danymi oraz prezentuje wyniki w przejrzystej tabeli z kolorowymi etyki
 1. **Klonowanie repozytorium:**
 
 ```bash
-   git clone https://github.com/<TWOJ_GITHUB_USERNAME>/<REPO_NAME>.git
-   cd <REPO_NAME>
+git clone https://github.com/<TWOJ_GITHUB_USERNAME>/<REPO_NAME>.git
+cd <REPO_NAME>
 ```
 
 2. **Instalacja zależności:**
@@ -48,7 +48,7 @@ npm install
 3. **Uruchomienie aplikacji w trybie deweloperskim:**
 
 ```bash
-    npm run dev
+npm run dev
 ```
 
 Aplikacja będzie dostępna lokalnie pod adresem http://localhost:3000.
@@ -57,7 +57,7 @@ Aplikacja będzie dostępna lokalnie pod adresem http://localhost:3000.
 
 * Budowanie aplikacji:
 ```bash
-    npm run build
+npm run build
 ```
 
 * Next.js wygeneruje infrastrukturę budowania w folderze `.next.`
@@ -65,7 +65,7 @@ Aplikacja będzie dostępna lokalnie pod adresem http://localhost:3000.
 * Umieść repozytorium na GitHub.
 * Zaloguj się na Vercel i zaimportuj projekt.
 * Vercel automatycznie wykryje, że masz projekt Next.js oraz API routes i wdroży go.
-* Po zakończeniu deploy’u Twoja aplikacja będzie dostępna pod adresem (np. https://`STRONA`.vercel.app).
+* Po zakończeniu deploy’u Twoja aplikacja będzie dostępna pod adresem (np. https://`NAZWA`.vercel.app).
 
 6. **Użycie**
 * W polu tekstowym wpisz słowo (np. tworzyć, wysyłać, odmieniać, zgon, bóg).

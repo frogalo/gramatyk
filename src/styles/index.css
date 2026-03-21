@@ -133,3 +133,66 @@ p {
     color: #856404;
 }
 
+/* Toggle button in the top left of container */
+.toggle-button {
+    /*position: absolute;*/
+
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: #005bb5;
+}
+
+/* Larger input style when analyzing a sentence */
+.input-large {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    height: 100px;
+    resize: vertical;
+}
+
+/* Existing styles for .input remain for single word mode */
+.input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus,
+.input-large:focus {
+    border-color: #572fe6;
+}
+
+.analyzed-word {
+    font-size: 1rem;
+    padding: 2px 4px;
+    margin-right: 4px;
+    border-radius: 3px;
+}
+
+.analyzed-word.found {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.analyzed-word.not-found {
+    background-color: #f8d7da;
+    color: #721c24;
+}
