@@ -1,86 +1,51 @@
 # Gramatyk
 
-**Gramatyk** to aplikacja internetowa zbudowana w `Next.js`, która pozwala pobierać i prezentować odmianę morfologiczną
-słowa ze strony [morfologia.com.pl](https://www.morfologia.com.pl). Aplikacja przetwarza podane słowo, zamienia polskie
-znaki diakrytyczne na określone ciągi znaków (np. "bóg" → "b_og"), generuje odpowiedni URL i pobiera stronę przez API
-proxy (serverless function), aby ominąć ograniczenia CORS. Następnie aplikacja analizuje pobraną stronę, wyodrębnia
-tabelę z danymi oraz prezentuje wyniki w przejrzystej tabeli z kolorowymi etykietami.
+**Gramatyk** to aplikacja internetowa służąca do błyskawicznej i głębokiej analizy morfologicznej słów i zdań w języku polskim. W zgrabny sposób pobiera dane bezpośrednio ze słowników morfologicznych oraz SJP, zręcznie omijając ograniczenia odpytywanych serwerów za pomocą wbudowanego proxy, po czym prezentuje je w niezwykle czytelnym i wciągającym formacie.
 
-## Funkcjonalności
+Działa na żywo: **[https://gramatyk.vercel.app/](https://gramatyk.vercel.app/)**
 
-- **Konwersja słów:**  
-  Aplikacja zamienia polskie znaki (ć, ł, ń, ś, ź, ż, ó) na określone ciągi znaków wykorzystywane przy generowaniu URL.
+## Przegląd Aplikacji
+![przyklad zdania](image.png)
+![przyklad slowa](image-1.png)
+![podswietlenie rzeczownikow](image-2.png)
+![historia](image-3.png)
 
-- **Pobieranie zawartości:**  
-  Używamy wbudowanego API proxy (serverless function) umieszczonego w folderze `app/api/proxy` by pobierać HTML strony
-  docelowej, omijając problemy CORS.
+---
 
-- **Parsowanie i analiza:**  
-  Aplikacja analizuje pobraną stronę, wyodrębnia tabelę z danymi oraz przekształca ją w strukturę danych.
+## Funkcjonalności i Działanie
 
-- **Formatowanie wyników:**  
-  Wyniki (odmiana morfologiczna) są wyświetlane w tabeli, a poszczególne etykiety (część mowy, liczba) są prezentowane w
-  kolorowych pudełkach, dostosowanych do wartości (np. czerwony dla "czasownik", niebieski dla "rzeczownik", fioletowy
-  dla innych).
+### 1. Analiza Składni Całych Zdań
+Aplikacja potrafi w locie analizować całe, długie i złożone zdania. Rozbija je na poszczególne słowa, rozpoznając część mowy i dokładną formę dla każdego wyrazu osobno. Otrzymujesz podgląd całego zdania z precyzyjnie pokolorowanymi etykietkami – czasowniki, rzeczowniki, przymiotniki czy partykuły oddzielone są unikatowymi, wibrującymi kolorami dla maksymalnej przejrzystości od pierwszego rzutu okiem.
 
-## Technologie
+*Podgląd w akcji: `![przyklad zdania](image.png)`*
 
-- **Next.js 13 (App Router):**  
-- **React:**  
-- **CSS:**  
-- **Serverless API Proxy:**  
+### 2. Interaktywna Legenda i Etykietowanie
+Pod widokiem analizy zdania generowana jest interaktywna legenda podsumowująca gramatykę wpisanego przez Ciebie tekstu. Najechanie na jakikolwiek konkretny element (np. na ikonę "Rzeczownik") sprawia, że wszystkie rzeczowniki w wierszu zostają momentalnie wyraźnie wyciągnięte na wierzch, podczas gdy reszta tekstu gaśnie. Stanowi to potężne narzędzie dydaktyczne, w szczególności dla wzrokowców. 
 
-## Instalacja i Uruchomienie
+*Podgląd w akcji: `![podswietlenie rzeczownikow](image-2.png)`*
 
-1. **Klonowanie repozytorium:**
+### 3. Analiza Pojedynczych Słów (Słownik)
+Wpisz w okno dowolny polski wyraz, a aplikacja natychmiast rozpozna jego część mowy, rzuci formę podstawową (lemat) na stół i w ułamku sekundy zaprezentuje tabele wszystkich możliwych form odmiany słowa. Przejrzyste, pastelowe kapsułki opisują rodzaj ujęcia językowego – przypadek, liczbę czy rodzaj. 
 
-```bash
-git clone https://github.com/<TWOJ_GITHUB_USERNAME>/<REPO_NAME>.git
-cd <REPO_NAME>
-```
+*Podgląd w akcji: `![przyklad slowa](image-1.png)`*
 
-2. **Instalacja zależności:**
+### 4. Inteligentne Fallbacki (Failover do bazy SJP)
+Niektóre rzadsze słowa (jak neologizmy, niecodzienne imiesłowy odczasownikowe, wulgaryzmy) często są pomijane przez standardowe bazy morfologiczne w internecie. Gramatyk posiada bezprecedensowy, zaawansowany system odzyskiwania logiki z surówek HTML słownika SJP — odgadywuje z tabelarycznych znaczników odpowiednie części mowy (które w nim de facto nie są zdeklarowane wprost). To znacząco zmniejsza wskaźnik niezidentyfikowanych słów ("—") w podglądzie zdań.
 
-```bash
-npm install
-```
+### 5. Historia wyszukiwań i Ulubione Słówka
+Zamiast nieporęcznych powrotów do przeglądarki, wszystko czego szukasz ląduje potajemnie we wbudowanej kronice. Karty na pasku ułatwiają dostęp do słów – w Historii masz wszystko po kolei z ostatnich analiz. Natomiast Ulubione pozwalają "zagwiazdkować" dane wyszukiwania przed utratą z oczu. W jednym miejscu masz pod ręką wszystko, co ważne.
 
-3. **Uruchomienie aplikacji w trybie deweloperskim:**
+*Podgląd w akcji: `![historia](image-3.png)`*
 
-```bash
-npm run dev
-```
+### 6. Design System Premium
+Zastosowany interfejs "Scholarly Manuscript" to hybrydowe połączenie wyrafinowanej naukowości starodawnych czasopism (z typografią starych nagłówków Newsreader) połączone z totalną zorganizowaną nowoczesnością. Ciekłe, rozmyte tła, czyste kafelki oraz wszechobecnie zachowane idealne kontrasty wspierane są drobnymi mikroanimacjami. 
 
-Aplikacja będzie dostępna lokalnie pod adresem http://localhost:3000.
+---
 
-4. **Budowanie**
-
-* Budowanie aplikacji:
-```bash
-npm run build
-```
-
-* Next.js wygeneruje infrastrukturę budowania w folderze `.next.`
-5. **Deploy na Vercel**
-* Umieść repozytorium na GitHub.
-* Zaloguj się na Vercel i zaimportuj projekt.
-* Vercel automatycznie wykryje, że masz projekt Next.js oraz API routes i wdroży go.
-* Po zakończeniu deploy’u Twoja aplikacja będzie dostępna pod adresem (np. https://`NAZWA`.vercel.app).
-
-6. **Użycie**
-* W polu tekstowym wpisz słowo (np. tworzyć, wysyłać, odmieniać, zgon, bóg).
-* Kliknij przycisk "Pobierz tabelę" lub naciśnij Enter.
-7. **Aplikacja:**
-* Przetwarza słowo, zamienia polskie znaki i generuje odpowiedni URL.
-* Pobiera stronę docelową przez API proxy.
-* Wyodrębnia tabelę z danymi i parsuje jej zawartość.
-Prezentuje wyniki w tabeli z kolorowymi etykietami (np. czerwonym dla "czasownik", niebieskim dla "rzeczownik", fioletowym dla innych).
-
-***Uwagi***
-
-    Jeśli wystąpią problemy z pobieraniem danych z zewnętrznej strony, sprawdź konfigurację API proxy w app/api/proxy/route.js oraz upewnij się, że serwer docelowy nie odrzuca zapytań.
-    W razie potrzeby możesz dostosować reguły transformacji polskich znaków w funkcji transformPolish.
+## Technologie (Pod maską)
+Aplikacja została oparta na bardzo lekkiej architektonicznie chmurze – napisana w środowisku **Next.js 14+ (App Router)** i React. 
+Zaimplementowano czysty interfejs używający Custom CSS w poszanowaniu wydajności. Problem rygorystycznych ograniczeń CORS zlikwidowano serwerowo dzięki wbudowanemu proxy HTTP działającemu asynchronicznie *(Serverless Function)*. Gładkie hostowanie na Vercelu sprawia, że analizator wczytuje się w oka mgnieniu z każdego urządzenia.
 
 ***Licencja***
 
-Ten projekt jest udostępniany na licencji `MIT`.
+Projekt jest dystrybuowany w ramach popularnej i darmowej licencji `MIT`. Możesz do woli remiksować algorytm parsowania polskiej gramatyki we własnych projektach naukowych bez wyraźnej zgody autora.
