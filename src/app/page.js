@@ -24,6 +24,7 @@ export default function Home() {
   const [favorites, setFavorites] = useState([]);
   const [settings, setSettings] = useState({ fontSize: "normal", saveHistory: true, hideUnknown: false });
   const [sentenceResults, setSentenceResults] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const inputRef = useRef(null);
 
   useEffect(() => { 
@@ -133,19 +134,28 @@ export default function Home() {
   const hasResults = tableData && tableData.length > 0;
 
   return (
-    <div style={{ display: "flex", minHeight: "100dvh", background: "var(--background)" }}>
+    <div className="layout-container">
       {/* ── SIDEBAR ── */}
       <Sidebar 
          activeNav={activeNav} setActiveNav={setActiveNav} 
          resetAnalysis={resetAnalysis} inputRef={inputRef} 
+         isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}
+      />
+
+      <div 
+        className={`mobile-backdrop ${isSidebarOpen ? "open" : ""}`} 
+        onClick={() => setIsSidebarOpen(false)}
       />
 
       {/* ── MAIN ── */}
-      <main style={{ marginLeft: "240px", flex: 1, display: "flex", flexDirection: "column", minHeight: "100dvh" }}>
-        <TopBar activeNav={activeNav} setActiveNav={setActiveNav} />
+      <main className="main-content">
+        <TopBar 
+          activeNav={activeNav} setActiveNav={setActiveNav} 
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
 
         {/* ── CONTENT ── */}
-        <div style={{ flex: 1, padding: "2rem 2rem 4rem", maxWidth: "1200px", margin: "0 auto", width: "100%", fontSize: settings.fontSize === "large" ? "1.1rem" : "1rem" }}>
+        <div className="content-padding" style={{ fontSize: settings.fontSize === "large" ? "1.1rem" : "1rem" }}>
           {activeNav === "dictionary" && (
             <>
               <section style={{ maxWidth: "760px", margin: "0 auto 2rem" }}>

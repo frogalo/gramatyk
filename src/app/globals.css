@@ -204,3 +204,134 @@ input, textarea {
 .gradient-cta {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dim) 100%);
 }
+
+/* ---- Responsive Layout ---- */
+.layout-container {
+  display: flex;
+  min-height: 100dvh;
+  background: var(--background);
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 240px;
+  z-index: 40;
+  background: #e9e1ce;
+  box-shadow: var(--shadow-ambient);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.main-content {
+  margin-left: 240px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  transition: margin-left 0.3s ease;
+}
+
+.topbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  color: var(--primary);
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mobile-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 35;
+}
+
+.content-padding {
+  flex: 1;
+  padding: 2rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.topbar-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(251,249,244,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(177,179,169,0.15);
+  padding: 0 2rem;
+}
+
+.results-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.results-grid.has-detail {
+  grid-template-columns: 1fr 340px;
+}
+
+.table-wrapper {
+  background: var(--surface-container-lowest);
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  border: 1px solid rgba(177,179,169,0.1);
+  box-shadow: var(--shadow-ambient);
+}
+
+/* Mobile Overrides */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .main-content {
+    margin-left: 0;
+  }
+  .topbar-container {
+    justify-content: space-between;
+  }
+  .mobile-menu-btn {
+    display: flex;
+  }
+  .mobile-backdrop.open {
+    display: block;
+  }
+  .content-padding {
+    padding: 1rem 1rem 4rem;
+  }
+  .topbar-header {
+    padding: 0 1rem;
+  }
+  .results-grid.has-detail {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

@@ -54,13 +54,9 @@ export function WordResults({
       </div>
 
       {/* Table + Detail */}
-      <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: detailRow ? "1fr 340px" : "1fr", gap: "1.5rem", alignItems: "start" }}>
+      <div className={`results-grid ${detailRow ? "has-detail" : ""}`}>
         {/* ── Table ── */}
-        <div style={{
-          background: "var(--surface-container-lowest)", borderRadius: "0.75rem",
-          overflow: "hidden", border: "1px solid rgba(177,179,169,0.1)",
-          boxShadow: "var(--shadow-ambient)",
-        }}>
+        <div className="table-wrapper">
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ background: "var(--surface-container-low)" }}>

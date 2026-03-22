@@ -1,15 +1,14 @@
-export function TopBar({ activeNav, setActiveNav }) {
+export function TopBar({ activeNav, setActiveNav, setIsSidebarOpen }) {
   return (
-    <header style={{
-      position: "sticky", top: 0, zIndex: 30,
-      background: "rgba(251,249,244,0.92)", backdropFilter: "blur(12px)",
-      borderBottom: "1px solid rgba(177,179,169,0.15)",
-      padding: "0 2rem",
-    }}>
-      <div style={{
-        display: "flex", alignItems: "center", justifyContent: "flex-end",
-        height: "64px", maxWidth: "1200px", margin: "0 auto",
-      }}>
+    <header className="topbar-header">
+      <div className="topbar-container">
+        <button 
+          className="mobile-menu-btn" 
+          onClick={() => setIsSidebarOpen(true)}
+          title="Menu"
+        >
+          <span className="material-symbols-outlined" style={{ fontSize: "1.5rem" }}>menu</span>
+        </button>
 
         <div style={{ display: "flex", gap: "0.5rem" }}>
           {[["help_outline", "Pomoc", "about"], ["settings", "Ustawienia", "settings"]].map(([icon, title, route]) => (
