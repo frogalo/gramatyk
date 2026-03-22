@@ -1,6 +1,6 @@
 # Gramatyk
 
-**Gramatyk** to aplikacja internetowa służąca do błyskawicznej i głębokiej analizy morfologicznej słów i zdań w języku polskim. W zgrabny sposób pobiera dane bezpośrednio ze słowników morfologicznych oraz SJP, zręcznie omijając ograniczenia odpytywanych serwerów za pomocą wbudowanego proxy, po czym prezentuje je w niezwykle czytelnym i wciągającym formacie.
+**Gramatyk** to aplikacja internetowa służąca do błyskawicznej i głębokiej analizy morfologicznej słów i zdań w języku polskim. W zgrabny sposób pobiera dane bezpośrednio ze słowników morfologicznych oraz SJP, po czym prezentuje je w niezwykle czytelnym i wciągającym formacie.
 
 Działa na żywo: **[https://gramatyk.vercel.app/](https://gramatyk.vercel.app/)**
 
